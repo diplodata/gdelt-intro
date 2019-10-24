@@ -1,0 +1,254 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/serif.css">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- TITLE SLIDE -->
+				<section data-markdown data-background-image="./img/gdelt-gkg2.png">
+					<textarea data-template>
+						## G.D.E.L.T.
+						--------------------
+						#### The Global Database of Events, Language and Tone
+
+						Robin Edwards | Data Scientist | Open Source Unit
+						
+					</textarea>
+				</section>
+
+				<!-- GDELT HOMEPAGE-->
+				<section data-markdown data-background-image="./img/gdelt-homepage.png" data-background-size="100%"></section>
+				
+				<!-- GDELT VIDEOS: Kalev / NOAA-->
+				<section>
+					<section data-background-iframe="https://www.youtube.com/embed/UJJH6lrsfZE?start=16" data-background-interactive data-background-video-muted="false"></section>
+					<section data-background-iframe="https://www.youtube.com/embed/Psp7YivWL90?start=171" data-background-interactive data-background-video-muted="false"></section>
+				</section>
+
+				<!-- OVERVIEW -->
+				<section>
+					<img src="./img/gdelt-project.svg" style="border:0;"/>
+				</section>
+
+				<!-- DOC API -->
+				<section data-markdown data-background-image="./img/basic_layout.png" data-background-opacity=.08 data-background-size="95%">
+					<textarea data-template >
+						### GDELT [DOC API](https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/)
+						--------------------
+						- The main GDELT tool in operational use in OSU
+						- Search for global media content using:
+							- query terms (in English)
+							- image tags (Google's Cloud Vision API)
+							- topics/themes (GKG)
+							- country, language and web domain filters
+						- Explore analytics around the matching content
+						- Output raw/analytical data in various formats
+						- Back-coverage to 1 January 2017
+					</textarea>
+				</section>
+
+				<!-- UI INTRO -->
+				<section>
+					<section data-markdown data-background-image="./img/basic_layout.png" data-background-size="95%"></section>
+					<section data-markdown data-background-image="./img/basic_layout2.png" data-background-size="95%"></section>
+				</section>
+
+				<!-- ARTICLE SEARCH (Bangladesh) -->
+				<section>
+					<section>
+						<h4>Article search, e.g. Bangladeshi corruption <a href="https://gdelt.github.io/#api=doc&query=(corrupt%20OR%20corruption)%20(political%20OR%20politicians%20OR%20leaders)&sourcecountry=BG&sourcelang=ben&contentmode=ArtList&maxrecords=75&timespan=1m" target="_BLANK">(link)</a></h4>
+						<img src="./img/bangladesh-corruption.png" style="min-width: 50vw; max-height: 80vh; border:0;"/>
+					</section>
+					
+					<!-- ARTICLE TRANSLATION -->
+					<section>
+						<h4>Translated.. <a href="https://gdelt.github.io/#api=doc&query=(corrupt%20OR%20corruption)%20(political%20OR%20politicians%20OR%20leaders)&sourcecountry=BG&sourcelang=ben,hye&contentmode=ArtList&maxrecords=75&trans=true&timespan=1m" target="_BLANK">(link)</a></h4>
+						<img src="./img/bangladesh-corruption-eng.png" style="min-width: 50vw; max-height: 80vh; border:0;"/>
+					</section>
+				</section>
+
+				<!-- IMAGE TAGS -->
+				<section>
+					<h4>Searching by image tag, e.g. rocket/missile <a href="https://gdelt.github.io/#api=doc&query=&imagetag=rocket,missile&sourcecountry=RS&contentmode=ImageCollageInfo&maxrecords=75&timespan=6m" target="_BLANK">(link)</a></h4>
+					<img src="./img/rocket-image-tags.png" style="min-width: 50vw; max-height: 80vh; border:0;"/>
+				</section>
+
+				<!-- THEME TAGS -->
+				<section>
+					<section>
+						<h4>Searching by theme tag, e.g. cruise missile(s) <a href="https://gdelt.github.io/#api=doc&query=&sourcelang=ara&theme=TAX_WEAPONS_CRUISE_MISSILES,TAX_WEAPONS_CRUISE_MISSILE&contentmode=ArtList&maxrecords=75&startdatetime=20190912000000&enddatetime=20191020235959" target="_BLANK">(link)</a></h4>
+						<img src="./img/cruise-missile-themes.png" style="min-width: 50vw; max-height: 80vh; border:0;"/>
+					</section>
+					
+					<!-- Associated webb tags -->
+					<section>
+						<h4>Explore how images in results set were tagged <a href="https://gdelt.github.io/#api=doc&query=&sourcelang=ara&theme=TAX_WEAPONS_CRUISE_MISSILES,TAX_WEAPONS_CRUISE_MISSILE&contentmode=WordCloudImageWebTags&maxrecords=75&startdatetime=20190912000000&enddatetime=20191020235959" target="_BLANK">(link)</a></h4>
+						<img src="./img/cruise-missile-imgwebtags.png" style="min-width: 50vw; max-height: 80vh; border:0;"/>
+					</section>
+				</section>
+				
+				<!-- COUNTRY COMPARISONS (KHASHOGGI) -->
+				<section>
+					<section>
+						<h4>Country level analysis, e.g. "Khashoggi" <a href="https://gdelt.github.io/#api=doc&query=Khashoggi&sourcecountry=TU,UK,US,SA&timelinemode=TimelineSourceCountry&timelinesmooth=7&startdatetime=20180801000000&enddatetime=20191023235959" target="_BLANK">(link)</a></h4>
+						<img src="./img/khashoggi.png" style="min-width: 50vw; max-height: 80vh; border:0;"/>
+					</section>
+
+					<!-- ALTERNATIVE QUERY TERMS (KHASHOGGI) -->
+					<section>
+						<h4>Due diligence and alternative spellings <a href="https://gdelt.github.io/#compare&Khashoggi=https%3A%2F%2Fapi.gdeltproject.org%2Fapi%2Fv2%2Fdoc%2Fdoc%3Fquery%3DKhashoggi%2520sourcecountry%3ATU%26mode%3DTimelineSourceCountry%26timelinesmooth%3D7%26startdatetime%3D20180801000000%26enddatetime%3D20191023235959%26timezoom%3Dyes%26format%3Djson&Saudi%20journalist=https%3A%2F%2Fapi.gdeltproject.org%2Fapi%2Fv2%2Fdoc%2Fdoc%3Fquery%3DSaudi%20journalist%2520sourcecountry%3ATU%26mode%3DTimelineSourceCountry%26timelinesmooth%3D7%26startdatetime%3D20180801000000%26enddatetime%3D20191023235959%26timezoom%3Dyes%26format%3Djson" target="_BLANK">(link)</a></h4>
+						<img src="./img/khashoggi-turkey.png" style="min-width: 50vw; max-height: 80vh; border:0;"/>
+					</section>
+				</section>
+
+				<!-- COMPARE TOOL -->
+				<section>
+					<h4>The COMPARE tool.. e.g. Arabic coverage <a href='https://gdelt.github.io/#compare&BBC%20Arabic=https%3A%2F%2Fapi.gdeltproject.org%2Fapi%2Fv2%2Fdoc%2Fdoc%3Fquery%3D%2520(domain%3A.bbc.com%2520OR%2520domainis%3Abbc.com)%2520sourcelang%3Aara%26mode%3DTimelineLang%26timelinesmooth%3D7%26startdatetime%3D20170101000000%26enddatetime%3D20191023235421%26timezoom%3Dyes&RT%20&%20Sputnik%20Arabic=https%3A%2F%2Fapi.gdeltproject.org%2Fapi%2Fv2%2Fdoc%2Fdoc%3Fquery%3D%2520(domain%3A.rt.com%2520OR%2520domainis%3Art.com%2520OR%2520domain%3A.sputniknews.com%2520OR%2520domainis%3Asputniknews.com)%2520sourcelang%3Aara%26mode%3DTimelineLang%26timelinesmooth%3D7%26startdatetime%3D20170101000000%26enddatetime%3D20191023235421%26timezoom%3Dyes' target="_BLANK">(link)</a></h4>
+					<img src="./img/compare-arabic.png" style="min-width: 50vw; max-height: 80vh; border:0;"/>
+				</section>
+	
+				<!-- TRANSLATION (HUAWEI) -->
+				<section>
+					<h4>Lost in Translation.. e.g. Huawei leak <a href="https://gdelt.github.io/#compare&defence%20minister=https%3A%2F%2Fapi.gdeltproject.org%2Fapi%2Fv2%2Fdoc%2Fdoc%3Fquery%3D(British%20OR%20%22United%20Kingdom%22)%20defence%20minister%20Huawei%20sourcelang%3Azho%26mode%3DTimelineLang%26timezoom%3Dyes%26startdatetime%3D20190420000000%26enddatetime%3D20190520235959%26timezoom%3Dyes&defense%20minister=https%3A%2F%2Fapi.gdeltproject.org%2Fapi%2Fv2%2Fdoc%2Fdoc%3Fquery%3D(British%20OR%20%22United%20Kingdom%22)%20defense%20minister%20Huawei%20sourcelang%3Azho%26mode%3DTimelineLang%26timezoom%3Dyes%26startdatetime%3D20190420000000%26enddatetime%3D20190520235959%26timezoom%3Dyes&defense%20secretary=https%3A%2F%2Fapi.gdeltproject.org%2Fapi%2Fv2%2Fdoc%2Fdoc%3Fquery%3D(British%20OR%20%22United%20Kingdom%22)%20defense%20secretary%20Huawei%20sourcelang%3Azho%26mode%3DTimelineLang%26timezoom%3Dyes%26startdatetime%3D20190420000000%26enddatetime%3D20190520235959%26timezoom%3Dyes&defence%20secretary=https%3A%2F%2Fapi.gdeltproject.org%2Fapi%2Fv2%2Fdoc%2Fdoc%3Fquery%3D(British%20OR%20%22United%20Kingdom%22)%20defence%20secretary%20Huawei%20sourcelang%3Azho%26mode%3DTimelineLang%26timezoom%3Dyes%26startdatetime%3D20190420000000%26enddatetime%3D20190520235959%26timezoom%3Dyes" target="_BLANK">(link)</a></h4>
+					<img src="./img/huawei-translation.png" style="min-width: 50vw; max-height: 80vh; border:0;"/>
+				</section>
+
+				<!-- GEO API -->
+				<section data-markdown data-background-image="./img/basic_layout.png" data-background-opacity=.08 data-background-size="95%">
+					<textarea data-template >
+						### GDELT [GEO API](https://blog.gdeltproject.org/gdelt-geo-2-0-api-debuts/)
+						--------------------
+						- Points on the map for places mentioned in the _content_ of matching articles
+						- Enables specific content filtering to country, ADM1 region, city, or distance from a point coordinate
+						- Back-coverage 7 days
+						- Powerful for monitors tracking issues/events with an important spatial dimension
+					</textarea>
+				</section>
+				
+				<!-- Ebola example -->
+				<section>
+					<h4>GEO API, e.g. Ebola <a href="https://gdelt.github.io/#api=geo&query=&theme=WB_2663_EBOLA,TAX_DISEASE_EBOLA,TAX_DISEASE_EBOLA_VIRUS_DISEASE&geomode=PointData&geotimespan=7d" target="_BLANK">(link)</a></h4>
+					<img src="./img/geo-ebola-map.png" style="min-width: 50vw; max-height: 80vh; border:0;"/>
+				</section>
+
+				<!-- RSS FEEDS -->
+				<section>
+					<h4>DIY RSS feeds <a href="https://www.inoreader.com/" target="_BLANK">(use with e.g. inoreader.com)</a></h4>
+					<img src="./img/egypt-sina-terror-monitor.png" style="min-width: 50vw; max-height: 80vh; border:0;"/>
+				</section>
+
+				<!-- TV API -->
+				<section>
+					<section>
+						<h4>Television API - e.g. AOC <a href="https://gdelt.github.io/#api=tv&query=(AOC%20OR%20%22Ocasio-Cortez%22)&network=CNN,FOXNEWS,MSNBC&timelinesmooth=13&timespan=18m&tvmode=TimelineVol" target="_BLANK">(link)</a></h4>
+						<img src="./img/tv-api-timeline.png" style="min-width: 50vw; max-height: 80vh; border:0;"/>
+					</section>
+
+					<section>
+						<h4>Television API clip view <a href="https://gdelt.github.io/#api=tv&query=(AOC%20OR%20%22Ocasio-Cortez%22)&network=FOXNEWS&timespan=1m&tvmode=ClipGallery" target="_BLANK">(link)</a></h4>
+						<img src="./img/tv-api-clips.png" style="min-width: 50vw; max-height: 80vh; border:0;"/>
+					</section>
+				</section>
+
+				<!-- GDELT SUMMARY -->
+				<section data-markdown>
+						<textarea data-template >
+							### GDELT SUMMARY
+							--------------------
+							- https://api.gdeltproject.org/api/v2/summary/summary
+							- GDELT's own tool for querying its DOC and TV APIs
+							- Simpler but less functional than the [Github interface](https://gdelt.github.io/)
+							- Useful for quick overview of a subject
+							- Offers a powerful proportional comparison option (e.g. [a trend breakdown of how much US media coverage of `'Trump'` has also referenced impeachment](https://api.gdeltproject.org/api/v2/summary/summary?d=web&t=compare&k1=%28impeach+OR+impeached+OR+impeachment%29&k2=Trump&ts=6m&fsc=US&stm=yes&stp=yes&c=1))
+						</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template >
+						#### Future GDELT developments
+						--------------------
+						- GDELT 3.0 expected "in coming months"
+							- Potential improvements to help identify trending topics and narrative clusters
+							- Expected to extend retrospective coverage backwards past January 2017
+						- OSU plans to fully incorporate GDELT into OS-INSIGHT platform, enabling analytics and incorporation into issue trackers and dashboards
+						- OSU plans to harness other data products including the Outlink, Frontpage, Entity and Knowledge Graphs to create a suite of media facing analytical tools to help users understand media narrative trajectories and cluster media websites
+					</textarea>
+				</section>
+
+				<!-- OUTLINK GRAPH -->
+				<section>
+					<h4>Outlink Graph example: <a href="https://zerohedge.com" target="_BLANK">zerohedge.com</a></h4>
+					<img src="./img/zerohedge.png" style="border:0;"/>
+				</section>
+
+				<section>
+					<section data-markdown>
+						<textarea data-template >
+							### OS-INSIGHT
+							--------------------
+							- Data (primarily text-based) ingested from 9 high-value sources inc. BBCM and OSE. Offers a capability to host almost any non-official data for FCO
+							- Enrichment through _Natural Language Processing_ methods, such as _Named Entity Recognition_
+							- Supports article sharing, custom subscription notifications, community chat
+							- Planned improvements to incorporate RSS feeds, trends analysis, issue/event dashboards + more
+						</textarea>
+					</section>
+
+					<section>
+						<h4>OS-INSIGHT: article search (Hong Kong example)</h4>
+						<img src="./img/osi-hk.png" style="border:0;"/>
+					</section>
+
+					<section>
+						<h4>OS-INSIGHT: map view</h4>
+						<img src="./img/osi-hk-map.png" style="border:0;"/>
+					</section>
+					<section>
+						<h4>OS-INSIGHT: timeline</h4>
+						<img src="./img/osi-hk-timeline.png" style="border:0;"/>
+					</section>
+					<section>
+						<h4>OS-INSIGHT: entities analysis</h4>
+						<img src="./img/osi-hk-entities.png" style="border:0;"/>
+					</section>
+					<section>
+							<h4>OS-INSIGHT: network analysis</h4>
+						<img src="./img/osi-hk-network.png" style="border:0;"/>
+					</section>
+										
+				</section>
+
+				<!-- END -->
+				<section data-markdown>
+					<textarea data-template >
+						Thank you!
+					</textarea>
+				</section>
+
+			</div>
+		</div>
+		<script src="js/reveal.js"></script>
+		<script src="plugin/markdown/marked.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script>
+			Reveal.initialize({
+				hideAddressBar: true,
+				transitionSpeed: 'default', // default/fast/slow
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+				autoPlayMedia: true,
+				viewDistance: 3,
+				preloadIframes: true,
+			});
+		</script>
+	</body>
+</html>
